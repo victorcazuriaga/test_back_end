@@ -33,7 +33,7 @@ run project on your localhost
 important, to access the resources it is necessary to be logged in,
 if you try to access directly through the link without being logged in, you will be redirected to the login page
 
-1. register user:
+1. Register user:
 ````
 
 http://localhost:8000/api/register_page
@@ -51,14 +51,14 @@ http://localhost:8001/api/login_page
 ````
 3. After logging in you will be redirected to home , having access to the resources
 
-4. upload cnab txt file:
+4. Upload cnab txt file:
 ````
 http://localhost:8000/api/upload
 
 ## Docker
 http://localhost:8001/api/upload
 ````
-5. access registration information in the database
+5. Access registration information in the database
 ````
 http://localhost:8000/api/data
 
