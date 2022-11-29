@@ -1,6 +1,6 @@
 back end challenge
 
-##About
+## About the project
 
 Back end challenge challenge, would have to decode a file based on CNAB (Procol used for banking communication in Brazil) 
 saving in relational database, and making it available through a simple page, only registered users can access the resource
@@ -13,7 +13,7 @@ https://github.com/Kenzie-Academy-Brasil-Developers/desafio-backend-m6/blob/main
 ##
 
 
-##Getting Started
+## Getting Started
 
 Setup project environment with virtual environments and pip.
 ```
