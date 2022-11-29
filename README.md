@@ -28,6 +28,15 @@ $pip install -r requirements.txt
 run project on your localhost
 ```
 
+Optional Running project in Docker
+````
+$docker compose up
+
+## Base url Docker
+http://localhost:8001
+
+`````
+
 ## Access features
 
 important, to access the resources it is necessary to be logged in,
