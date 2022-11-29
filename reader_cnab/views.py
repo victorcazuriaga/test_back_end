@@ -4,8 +4,9 @@ from .services.reader import read_archive
 from .services.create_transactions import create_transactions
 from .models import DataCnab, TypeTransaction
 from django.contrib.auth.decorators import login_required
-from .forms import ArchiveForm
 from django.http import HttpResponse
+from django.forms.models import model_to_dict
+from .forms import ArchiveForm
 # Create your views here.
 
 
@@ -25,3 +26,25 @@ class ReaderView(APIView):
             data_tipo = TypeTransaction.objects.filter(id=tipo).values()
             cnab_list += [{**data, "tipo": data_tipo}]
         return Response(cnab_list, status.HTTP_200_OK)
+
+
+@login_required(login_url="/api/login_page")
+def update_file(request):
+    forms = ArchiveForm(request.POST)
+    context = {"forms": ArchiveForm}
+    if request.method == "GET":
+        # update_file = request.FILES["data"]
+        return render(request, "upload.html", context=context)
+    else:
+        data = request.FILES.get("data")
+        transactions = read_archive(data)
+        create_transactions(transactions)
+        return HttpResponse("Registrados com sucesso")
+
+
+@login_required(login_url="/api/login_page")
+def get_all_register(request):
+    if request.method == "GET":
+        data = ReaderView.get(self=None, request=None).data
+        context = {"data": data}
+        return render(request, "result.html", context=context)

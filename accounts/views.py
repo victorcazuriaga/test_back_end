@@ -1,11 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import generics
 from .serializers import UserSerializer
 from .models import User
 from django.http import HttpResponse
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login
-import ipdb
 # Create your views here.
 
 
@@ -44,7 +43,7 @@ def login_user(request):
         user = authenticate(username=username, password=password)
         if user:
             login(request, user)
-            return HttpResponse("logado")
+            return render(request, "home.html")
         else:
             return HttpResponse("Login ou senha inválido")
 
